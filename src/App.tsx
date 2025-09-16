@@ -1,16 +1,20 @@
 
-import './App.css'
-import MyComponent from "../myComponent/MyComponent.tsx";
+import {useState} from "react";
 
 
-function App() {
+const App = ()=> {
+    let [counter, setCounter] = useState(0);
+    console.log("mont");
     return (
-        <>
-        <MyComponent text = {'hello1'}/>
-        <MyComponent text = {'hello2'}/>
-        <MyComponent text = {'hello3'}/>
-            {/*{MyComponent({text:'hello 2'})*/}
-        </>
+        <div>
+         <h2>{counter}</h2>
+            <button onClick={() =>
+                setCounter(counter ++)}>increment
+            </button>
+            <button onClick={() =>
+                setCounter(counter --)}>decrement
+            </button>
+        </div>
     );
 }
 
