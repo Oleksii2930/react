@@ -7,7 +7,7 @@ export const loadTodos = async (): Promise<TodoModel[]> => {
  if (!response.ok) {
   throw new Error(`Failed to fetch todos: ${response.status}`);
  }
- return response.json(); // тут TS розуміє, що це Promise<any>, але ми вказали Promise<TodoModel[]>
+ return response.json();
 };
 
 
