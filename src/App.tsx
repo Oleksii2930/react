@@ -1,18 +1,16 @@
 
-import './App.css'
-import MyComponent from "../myComponent/MyComponent.tsx";
-
+import './App.css';
+import { Posts } from './components/posts/posts.tsx';
 
 function App() {
     return (
         <>
-        <MyComponent text = {'hello1'}/>
-        <MyComponent text = {'hello2'}/>
-        <MyComponent text = {'hello3'}/>
-            {/*{MyComponent({text:'hello 2'})*/}
+            <h1>My App</h1>
+            <hr />
+            <Posts />
         </>
     );
 }
 
-export default App
+export default App;
 
