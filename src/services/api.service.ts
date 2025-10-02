@@ -1,5 +1,6 @@
 import type {IUser} from "../model/IUser.ts";
 import {urls} from "../constants/urls.ts";
+import type {IPost} from "../model/IPost.ts";
 
 export const userService = {
     getUsers: async ():Promise<IUser[]> => {
@@ -10,5 +11,13 @@ export const userService = {
     getUser: async (id:number) => {
         return await fetch(urls.users.byId(id))
             .then(value => value.json())
+    }
+}
+
+export const postsServices = {
+    getAllPostsOfUserById: async (id:number):Promise<IPost[]> => {
+        return await  fetch(urls.posts.userPostsById(id))
+            .then(value => value.json())
+
     }
 }
