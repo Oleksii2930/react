@@ -1,15 +1,13 @@
-
+import {Menu} from "..//src/components/menu/Menu.tsx"
 import './App.css'
-import MyComponent from "../myComponent/MyComponent.tsx";
-
+import {Outlet} from "react-router";
 
 function App() {
     return (
         <>
-        <MyComponent text = {'hello1'}/>
-        <MyComponent text = {'hello2'}/>
-        <MyComponent text = {'hello3'}/>
-            {/*{MyComponent({text:'hello 2'})*/}
+This is App component.
+            <Menu/>
+            <Outlet/>
         </>
     );
 }
