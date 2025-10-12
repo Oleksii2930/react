@@ -1,10 +1,11 @@
 import {createBrowserRouter} from "react-router";
 import App from "../App.tsx";
-import UsersJsonPlaceholder from "../components/UsersJsonPlaceholder";
-import UsersDummyJson from "../components/UsersDummyJson.tsx";
-import CommentsJsonPlaceholder from "../components/CommentsJsonPlaceholder.tsx";
-import PostsJsonPlaceholder from "../components/PostsJsonPlaceholder";
-import PostsDummyJson from "../components/PostsDummyJson";
+import UsersJsonPlaceholder from "../pages/UsersJsonPlaceholder.tsx";
+import UsersDummyJson from "../pages/UsersDummyJson.tsx";
+import CommentsJsonPlaceholder from "../pages/CommentsJsonPlaceholder.tsx";
+import PostsJsonPlaceholder from "../pages/PostsJsonPlaceholder.tsx";
+import PostsDummyJson from "../pages/PostsDummyJson.tsx";
+import CommentsDummyJson from "../pages/CommentsDummyJson.tsx";
 
 export const routes = createBrowserRouter([
     { path: '/', element: <App/>, children: [
@@ -26,6 +27,7 @@ export const routes = createBrowserRouter([
                 path: "comments",
                 children: [
                     { path: "jsonplaceholder", element: <CommentsJsonPlaceholder /> },
+                    { path: "dummyjson", element: <CommentsDummyJson/> }
                 ]
             } ]} ])
 
