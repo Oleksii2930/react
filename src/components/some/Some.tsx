@@ -1,20 +1,22 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useSearchParams} from "react-router-dom";
+import type {IUser} from "../../models/IUser.ts";
+import  {getAllUsers} from "../../service/api.service.ts";
+import {UserComponent} from "../user/UserComponent.tsx";
 
 const Some = () => {
-    const [qwery, setQwery] = useSearchParams()
+
+    const [users, setUsers] = useState<IUser[]>([])
+    const [query] = useSearchParams()
     useEffect(() => {
-        const pg = qwery.get('pg');
-        console.log(pg);
-        fetch('https://reqres.in/api/users?page=' +pg)
-        .then(res => res.json())
-            .then(res => {
-                console.log(res);
-            })
-    }, [qwery])
+        const pg = query.get('pg');
+        getAllUsers(pg || '1').then(value => setUsers(value.data));
+    }, [query])
     return (
         <div>
-
+            {
+                users.map((value) => <UserComponent key={value.id} item={value}/>)
+            }
         </div>
     );
 };
