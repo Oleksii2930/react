@@ -1,17 +1,13 @@
-import type {IUserResponseModel} from "../models/IUserResponseModel.ts";
-import type {ICartResponseModel} from "../models/ICartResponseModel.ts";
+import type {IUsersResponse} from "../models/IUsersResponse.ts";
 
-const baseURL = "http://dummyjson.com"
+const url = 'https://dummyjson.com';
 
-export const userService = {
-getAllUsers: async ():Promise<IUserResponseModel> => {
-    return await fetch(baseURL+'/users')
-        .then(value => value.json())
-}
-}
-export  const cartService = {
-    getCartsOfUser: async (userId:string):Promise<ICartResponseModel>=>{
-        return await fetch(baseURL+ "/carts/user/" + userId)
-            .then(res => res.json())
-}
+export const getUsers = async (page: string): Promise<IUsersResponse> => {
+    const limit = 30;
+    const skip = limit * (+page) - limit;
+    const response = await fetch(url + '/users' + '?skip=' + skip)
+        .then(value => value.json());
+
+    return response;
+
 }

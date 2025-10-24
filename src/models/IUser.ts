@@ -49,7 +49,7 @@ export interface Crypto {
   network: string;
 }
 
-export interface IUser{
+export interface IUser {
   id: number;
   firstName: string;
   lastName: string;
