@@ -14,6 +14,7 @@ const axiosInstance= axios.create({
     baseURL: "https://dummyjson.com/auth",
     headers: {}
 })
+//налаштований HTTP-клієнт
 
 
 
@@ -23,7 +24,7 @@ axiosInstance.interceptors.request.use((requestObject) => {
         retriveLocalStorege<IProductsResponseModelType[]>('products');
             }
     return requestObject;
-} )   //перехоплювати всі запити
+} )   // Перехоплювати всі запити. Це функція, яка виконується перед кожним запитом.
 
 
 export const login  = async ({username, password,expiresInMins}:LoginData):Promise<IUserWithTokens> => {
@@ -32,6 +33,7 @@ export const login  = async ({username, password,expiresInMins}:LoginData):Promi
     localStorage.setItem("user",JSON.stringify(userWithTokens));
     return  userWithTokens;
 }
+//авторизація користувача
 
 export const loadAuthProducts  = async ():Promise<IProducts[]> => {
 

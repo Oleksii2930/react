@@ -11,6 +11,7 @@ const AuthResourcesPage = () => {
             refresh().then(() => loadAuthProducts()).then(value => console.log(value));
         })
     }, [])
+    //при завантаженні сторінки робить запит на отримання захищених ресурсів (продуктів), а якщо токен недійсний — оновлює токен і повторює запит.
 
     return (
         <div>
