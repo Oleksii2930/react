@@ -1,16 +1,28 @@
 
 import './App.css'
-import MyComponent from "../myComponent/MyComponent.tsx";
+import LeftBranch from "./components/LeftBranch.tsx";
+import RightBranch from "./components/RightBranch.tsx";
+import { MyContext} from "./context/MyContext.tsx";
+import {useState} from "react";
 
 
 function App() {
+
+    const [counter ,setCounter] = useState<number>(0)
+
     return (
         <>
-        <MyComponent text = {'hello1'}/>
-        <MyComponent text = {'hello2'}/>
-        <MyComponent text = {'hello3'}/>
-            {/*{MyComponent({text:'hello 2'})*/}
-        </>
+            <MyContext.Provider value={{
+                counterValue:counter,
+                increment:(obj) => {
+                    setCounter(++obj);
+                }
+            }}>
+            <LeftBranch/>
+            <RightBranch/>
+                </MyContext.Provider>
+
+                </>
     );
 }
 
