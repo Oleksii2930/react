@@ -1,15 +1,21 @@
 
 import './App.css'
-import MyComponent from "../myComponent/MyComponent.tsx";
+import {useFetch} from "./hooks/useFetch.tsx";
 
 
 function App() {
+   const users =  useFetch<{ id: number, name:string}[]>('https://jsonplaceholder.typicode.com/users')
+
     return (
         <>
-        <MyComponent text = {'hello1'}/>
-        <MyComponent text = {'hello2'}/>
-        <MyComponent text = {'hello3'}/>
-            {/*{MyComponent({text:'hello 2'})*/}
+            {
+                users  &&
+            users.map((user) => (
+            <div key={user.id}>
+                {user.id}: {user.name}
+            </div>
+                ))
+            }
         </>
     );
 }
