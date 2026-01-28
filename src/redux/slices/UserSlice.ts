@@ -21,4 +21,4 @@ export const userSlice = createSlice({
     }),
 
 });
-export const UserActions = {...userSlice.actions, loadUsers}  ;
+export const userActions = {...userSlice.actions, loadUsers}  ;

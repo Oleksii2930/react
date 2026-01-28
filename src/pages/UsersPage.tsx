@@ -1,10 +1,21 @@
+import {useEffect} from "react";
+import {useAppDispatch, useAppSelector} from "../redux/store.ts";
+import {userActions} from "../redux/slices/UserSlice.ts";
+import type {IUser} from "../models/IUser.ts";
 
 const UsersPage = () => {
-    return (
-        <div>
+  const dispatch = useAppDispatch();
+  const users = useAppSelector((state)=> state.userStoreSlice.users);
+    useEffect(() => {
 
-        </div>
-    );
+        dispatch(userActions.loadUsers())
+  },[])
+
+
+return (
+    <>
+        {users.map((user:IUser) => (<div key={user.id}>{user.name}</div>))}
+    </>
+)
 };
-
 export default UsersPage;

@@ -24,3 +24,4 @@ export const commentSlice = createSlice({
 
 
 });
+export const commentActions = {...commentSlice.actions, loadComments};
