@@ -10,7 +10,18 @@ import type {IComment} from "../models/IComment.ts";
 const ComplexPage = () => {
 
     const dispatch = useAppDispatch();
-const {commentStoreSlice:{comments}, postStoreSlice:{posts}, userStoreSlice:{users}} = useAppSelector(state => state);
+    const comments = useAppSelector(
+        state => state.commentStoreSlice.comments
+    );
+
+    const posts = useAppSelector(
+        state => state.postStoreSlice.posts
+    );
+
+    const users = useAppSelector(
+        state => state.userStoreSlice.users
+    );
+//const {commentStoreSlice:{comments}, postStoreSlice:{posts}, userStoreSlice:{users}} = useAppSelector(state => state);
 
 useEffect(() => {
     if(!users.length){

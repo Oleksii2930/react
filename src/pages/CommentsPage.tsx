@@ -15,7 +15,7 @@ const CommentsPage = () => {
 
     return (
         <div>
-            {comments.map((comment:IComment) => (<div key={comment.id}>{comment.email}</div>))}
+            {comments.map((comment:IComment) => (<div key={comment.id}>{comment.name}</div>))}
 
         </div>
     );

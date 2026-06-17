@@ -1,6 +1,6 @@
 import type {IUser} from "../../models/IUser.ts";
 import {createAsyncThunk, createSlice, type PayloadAction} from "@reduxjs/toolkit";
-import {getAll} from "../../servises/api.servise.ts";
+import {getAll} from "../../servises/api.serviсe.ts";
 
 type UserSliceType = {
     users:IUser[]
@@ -10,7 +10,9 @@ const initUserSliceState:UserSliceType =  {users:[]};
 
 const loadUsers = createAsyncThunk("loadUsers", async (_ , thunkAPI ) => {
  const users = await getAll<IUser[]>('/users');
+ console.log(users);
  return thunkAPI.fulfillWithValue(users);
+
 });
 export const userSlice = createSlice({
     name:'userSlice',

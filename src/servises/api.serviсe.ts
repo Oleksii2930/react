@@ -7,7 +7,7 @@ export  const getAll = async <T,>(endpoint:string) => {
     return responseResult as T;
 }
 
-export const all = getAll<IUser[]>('/user')
+export const all = getAll<IUser[]>('/users')
 
 
 

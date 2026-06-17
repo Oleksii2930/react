@@ -1,6 +1,6 @@
 import type {IComment} from "../../models/IComment.ts";
 import {createAsyncThunk, createSlice, type PayloadAction} from "@reduxjs/toolkit";
-import {getAll} from "../../servises/api.servise.ts";
+import {getAll} from "../../servises/api.serviсe.ts";
 
 type CommentSliceType = {
     comments:IComment[];
